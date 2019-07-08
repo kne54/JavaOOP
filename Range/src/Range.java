@@ -28,15 +28,11 @@ public class Range {
         }
     }
 
-    public double getLength() {
-        checkOrder();
-
+    private double getLength() {
         return to - from;
     }
 
     private boolean isInside(double x) {
-        checkOrder();
-
         return (x - from > Range.EPSILON && to - x > Range.EPSILON);
     }
 
@@ -55,15 +51,18 @@ public class Range {
         from = range.getFrom();
         to = range.getTo();
 
-        System.out.printf("Задан диапазон от %f.2 до %f.2", from, to);
+        System.out.printf("Задан диапазон от %.2f до %.2f%n", from, to);
+
+        double length = range.getLength();
+        System.out.printf("Длина диапазона: %.2f%n%n", length);
 
         System.out.println("Введите число: ");
         double x = scanner.nextDouble();
 
         if (range.isInside(x)) {
-            System.out.printf("Число %f.2 попадает в диапазон от %f.2 до %f.2", x, from, to);
+            System.out.printf("Число %.2f попадает в диапазон от %.2f до %.2f", x, from, to);
         } else {
-            System.out.printf("Число %f.2 не попадает в диапазон от %f.2 до %f.2", x, from, to);
+            System.out.printf("Число %.2f не попадает в диапазон от %.2f до %.2f", x, from, to);
         }
     }
 }
