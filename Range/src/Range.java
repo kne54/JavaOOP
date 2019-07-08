@@ -12,14 +12,6 @@ public class Range {
         this.to = to;
     }
 
-    private void setFrom(double from) {
-        this.from = from;
-    }
-
-    private void setTo(double to) {
-        this.to = to;
-    }
-
     private double getFrom() {
         return from;
     }
