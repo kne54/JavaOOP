@@ -9,6 +9,9 @@ public class Range {
         this.to = to;
     }
 
+    public Range() {
+    }
+
     public double getFrom() {
         return from;
     }
@@ -25,7 +28,7 @@ public class Range {
         this.to = to;
     }
 
-    public void print(){
+    public void print() {
         System.out.println(this.from + " " + this.to);
     }
 
@@ -70,7 +73,7 @@ public class Range {
         return null;
     }
 
-    public Range[] combine(Range range) {
+    public Range[] getCombine(Range range) {
         if (this.getIntersection(range) == null) {
             return new Range[]{this, range};
         }
@@ -94,5 +97,23 @@ public class Range {
 
         return new Range[]{new Range(minFrom, maxTo)};
     }
-}
 
+    public Range[] getDifference(Range range) { //todo: работает не правильно. Тест 5 10 и 1 5
+        if (this.getIntersection(range) == null) {
+            return new Range[]{this};
+        }
+
+        double from = range.getFrom();
+        double to = range.getTo();
+
+        if (this.from >= from && this.to <= to) {
+            return null;
+        }
+
+        if (this.to < to) {
+            return new Range[]{new Range(this.from, from)};
+        }
+
+        return new Range[]{(new Range(this.from, from)), new Range(to, this.to)};
+    }
+}
