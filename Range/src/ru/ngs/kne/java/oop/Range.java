@@ -9,9 +9,6 @@ public class Range {
         this.to = to;
     }
 
-    public Range() {
-    }
-
     public double getFrom() {
         return from;
     }
@@ -49,24 +46,22 @@ public class Range {
     }
 
     public Range getIntersection(Range range) {
-        double from = range.getFrom();
-        double to = range.getTo();
         double maxFrom;
         double minTo;
 
-        if (this.from >= from) {
+        if (this.from >= range.from) {
             maxFrom = this.from;
         } else {
-            maxFrom = from;
+            maxFrom = range.from;
         }
 
-        if (this.to <= to) {
+        if (this.to <= range.to) {
             minTo = this.to;
         } else {
-            minTo = to;
+            minTo = range.to;
         }
 
-        if (maxFrom <= minTo) {
+        if (maxFrom < minTo) {
             return new Range(maxFrom, minTo);
         }
 
@@ -75,45 +70,56 @@ public class Range {
 
     public Range[] getCombine(Range range) {
         if (this.getIntersection(range) == null) {
-            return new Range[]{this, range};
+            if (this.from == range.to) {
+                return new Range[]{new Range(range.from, this.to)};
+            }
+
+            if (range.from == this.to) {
+                return new Range[]{new Range(this.from, range.to)};
+            }
+
+            if (this.to < range.to) {
+                return new Range[]{this, range};
+            }
+
+            return new Range[]{range, this};
         }
 
-        double from = range.getFrom();
-        double to = range.getTo();
         double minFrom;
         double maxTo;
 
-        if (this.from <= from) {
+        if (this.from <= range.from) {
             minFrom = this.from;
         } else {
-            minFrom = from;
+            minFrom = range.from;
         }
 
-        if (this.to >= to) {
+        if (this.to >= range.to) {
             maxTo = this.to;
         } else {
-            maxTo = to;
+            maxTo = range.to;
         }
 
         return new Range[]{new Range(minFrom, maxTo)};
     }
 
-    public Range[] getDifference(Range range) { //todo: работает не правильно. Тест 5 10 и 1 5
+    public Range[] getDifference(Range range) {
         if (this.getIntersection(range) == null) {
             return new Range[]{this};
         }
 
-        double from = range.getFrom();
-        double to = range.getTo();
-
-        if (this.from >= from && this.to <= to) {
-            return null;
+        if (this.from >= range.from && this.to <= range.to) {
+            return new Range[0];
         }
 
-        if (this.to < to) {
-            return new Range[]{new Range(this.from, from)};
+        if (this.from < range.from && this.to > range.to) {
+            return new Range[]{(new Range(this.from, range.from)), new Range(range.to, this.to)};
         }
 
-        return new Range[]{(new Range(this.from, from)), new Range(to, this.to)};
+        if (this.to < range.to) {
+            return new Range[]{new Range(range.from, this.from)};
+        }
+
+        return new Range[]{new Range(this.to, range.to)};
     }
 }
