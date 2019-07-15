@@ -1,4 +1,4 @@
-package ru.ngs.kne.java.oop.main;
+package ru.ngs.kne.java.oop.Main;
 
 import ru.ngs.kne.java.oop.Range;
 
