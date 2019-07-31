@@ -4,8 +4,8 @@ import ru.ngs.kne.java.oop.Range;
 
 public class Main {
     public static void main(String[] args) {
-        Range firstRange = new Range(5, 10);
-        Range secondRange = new Range(1, 6);
+        Range firstRange = new Range(1, 10);
+        Range secondRange = new Range(3, 6);
 
         double x = 4.9;
 
