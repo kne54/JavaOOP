@@ -1,11 +1,11 @@
 package ru.ngs.kne.java.oop;
 
-public abstract class Shapes {
-    public abstract double getWidth();
+public interface Shapes {
+    double getWidth();
 
-    public abstract double getHeight();
+    double getHeight();
 
-    public abstract double getArea();
+    double getArea();
 
-    public abstract double getPerimeter();
+    double getPerimeter();
 }

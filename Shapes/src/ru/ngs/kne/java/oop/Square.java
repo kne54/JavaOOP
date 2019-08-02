@@ -1,7 +1,7 @@
 package ru.ngs.kne.java.oop;
 
-public class Square extends Shapes {
-    double sideLength;
+public class Square implements Shapes {
+    private double sideLength;
 
     public Square(double sideLength) {
         this.sideLength = sideLength;
@@ -25,5 +25,32 @@ public class Square extends Shapes {
     @Override
     public double getPerimeter() {
         return 4 * sideLength;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " [" + sideLength + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 15;
+
+        return prime + Double.hashCode(sideLength);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) {
+            return true;
+        }
+
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Square square = (Square) object;
+
+        return sideLength == square.sideLength;
     }
 }

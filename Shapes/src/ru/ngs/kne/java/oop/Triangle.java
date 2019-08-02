@@ -1,12 +1,12 @@
 package ru.ngs.kne.java.oop;
 
-public class Triangle extends Shapes {
-    double x1;
-    double y1;
-    double x2;
-    double y2;
-    double x3;
-    double y3;
+public class Triangle implements Shapes {
+    private double x1;
+    private double y1;
+    private double x2;
+    private double y2;
+    private double x3;
+    private double y3;
 
     public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
         this.x1 = x1;
@@ -39,6 +39,41 @@ public class Triangle extends Shapes {
         double sideLength3 = Math.sqrt((x3 - x1) * (x3 - x1) + (y3 - y1) * (y3 - y1));
 
         return sideLength1 + sideLength2 + sideLength3;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " [" + x1 + ", " + y1 + ", " + x2 + ", " + y2 + ", " + x3 + ", " + y3 + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 19;
+        int hash = 1;
+
+        hash = prime * hash + Double.hashCode(x1);
+        hash = prime * hash + Double.hashCode(y1);
+        hash = prime * hash + Double.hashCode(x2);
+        hash = prime * hash + Double.hashCode(y2);
+        hash = prime * hash + Double.hashCode(x3);
+        hash = prime * hash + Double.hashCode(y3);
+
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == this) {
+            return true;
+        }
+
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Triangle triangle = (Triangle) object;
+
+        return (x1 == triangle.x1) && (y1 == triangle.y1) && (x2 == triangle.x2) && (y2 == triangle.y2) && (x3 == triangle.x3) && (y3 == triangle.y3);
     }
 }
 
