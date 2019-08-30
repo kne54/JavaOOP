@@ -1,42 +1,42 @@
-package ru.ngs.kne.java.oop;
+package ru.ngs.kne.java.oop.shapes;
 
-public class Circle implements Shapes {
-    private double radius;
+public class Square implements Shapes {
+    private double sideLength;
 
-    public Circle(double radius) {
-        this.radius = radius;
+    public Square(double sideLength) {
+        this.sideLength = sideLength;
     }
 
     @Override
     public double getWidth() {
-        return 2 * radius;
+        return sideLength;
     }
 
     @Override
     public double getHeight() {
-        return 2 * radius;
+        return sideLength;
     }
 
     @Override
     public double getArea() {
-        return Math.PI * radius * radius;
+        return sideLength * sideLength;
     }
 
     @Override
     public double getPerimeter() {
-        return 2 * Math.PI * radius;
+        return 4 * sideLength;
     }
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + " [" + radius + "]";
+        return getClass().getSimpleName() + " [" + sideLength + "]";
     }
 
     @Override
     public int hashCode() {
-        final int prime = 13;
+        final int prime = 15;
 
-        return prime + Double.hashCode(radius);
+        return prime + Double.hashCode(sideLength);
     }
 
     @Override
@@ -49,8 +49,8 @@ public class Circle implements Shapes {
             return false;
         }
 
-        Circle circle = (Circle) object;
+        Square square = (Square) object;
 
-        return radius == circle.radius;
+        return sideLength == square.sideLength;
     }
 }

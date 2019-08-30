@@ -1,4 +1,4 @@
-package ru.ngs.kne.java.oop;
+package ru.ngs.java.oop.range;
 
 public class Range {
     private double from;

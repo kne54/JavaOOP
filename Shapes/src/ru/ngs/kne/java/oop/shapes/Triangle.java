@@ -1,4 +1,4 @@
-package ru.ngs.kne.java.oop;
+package ru.ngs.kne.java.oop.shapes;
 
 public class Triangle implements Shapes {
     private double x1;

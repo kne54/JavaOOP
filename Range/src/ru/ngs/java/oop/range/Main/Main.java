@@ -1,6 +1,6 @@
-package ru.ngs.kne.java.oop.Main;
+package ru.ngs.java.oop.range.Main;
 
-import ru.ngs.kne.java.oop.Range;
+import ru.ngs.java.oop.range.Range;
 
 public class Main {
     public static void main(String[] args) {

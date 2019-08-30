@@ -1,4 +1,4 @@
-package ru.ngs.kne.java.oop;
+package ru.ngs.kne.java.oop.shapes;
 
 import java.util.List;
 

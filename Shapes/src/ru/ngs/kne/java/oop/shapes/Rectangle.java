@@ -1,4 +1,4 @@
-package ru.ngs.kne.java.oop;
+package ru.ngs.kne.java.oop.shapes;
 
 public class Rectangle implements Shapes {
     private double sideLength;

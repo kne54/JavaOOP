@@ -1,12 +1,12 @@
-package ru.ngs.kne.java.oop.Main;
+package ru.ngs.kne.java.oop.shapes.main;
 
-import ru.ngs.kne.java.oop.*;
+import ru.ngs.kne.java.oop.shapes.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ru.ngs.kne.java.oop.ShapesMethods.getMaxAreaShape;
-import static ru.ngs.kne.java.oop.ShapesMethods.getNextToMaxPerimeterShape;
+import static ru.ngs.kne.java.oop.shapes.ShapesMethods.getMaxAreaShape;
+import static ru.ngs.kne.java.oop.shapes.ShapesMethods.getNextToMaxPerimeterShape;
 
 
 public class Main {
